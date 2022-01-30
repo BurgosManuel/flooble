@@ -1,3 +1,5 @@
+/* =========== GLOBAL AND COMPONENTS STYLES & EFFECTS ==========*/
+
 *,
 *::after,
 *::before {
@@ -13,23 +15,14 @@ body {
   height: calc(100vh - 70px);
 }
 
+/*
+      CLASE GRAL PARA CONTENEDORES FLEX 
+    - Definimos display flex para la nav.
+    - Alineamos el contenido verticalmente (align-items).
+*/
 .flex-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.navbar {
-  width: 100%;
-  height: 70px;
-  /* 
-    - Definimos display flex para la nav.
-    - Definimos space-between: 
-    El primer elemento se pega al inicio, el último elemento al final, y los elementos hijos se distribuyen de manera equitativa.
-    - Alineamos el contenido al centro
-    */
-  justify-content: space-between;
-  font-size: 1rem;
 }
 
 a {
@@ -39,56 +32,96 @@ a {
   text-decoration: none;
 }
 
-.round-img {
-    width: 2.5rem;
-    border-radius: 100%;
+img:hover {
+  cursor: pointer;
 }
 
-img:hover {
-    opacity: 0.8;
-    transition: opacity .3s;
+li:hover {
+  color: #cccccc;
+  transition: color 0.3s;
 }
+
+.light {
+  background-color: #707793;
+}
+
+.green {
+  color: #3bb99b;
+}
+
+/* =========== TOP NAVIGATION BAR ==========*/
+
+.navbar {
+  width: 100%;
+  height: 70px;
+  /* 
+
+    - Definimos space-between: 
+    El primer elemento se pega al inicio, el último elemento al final, y los elementos hijos se distribuyen de manera equitativa.
+
+    - Aplica a la topnav y footer
+
+    */
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.round-img {
+  width: 2.5rem;
+  border-radius: 100%;
+}
+
+.navbar img:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+/* =========== SEARCH SECTION ==========*/
 
 .search-container {
-  text-align: center;
-  height: 400px;
+  display: flex;
+  flex-direction: column; /* Renderizamos los items verticalmente, y no horizontalmente. */
+  align-items: center;
   width: 100%;
   font-size: 11px;
 }
 
-h1 {
+.title {
   font-family: "Poppins", sans-serif;
-  font-size: 10em;
+  font-size: 5em;
   font-weight: 400;
   letter-spacing: 1.8rem;
   margin-bottom: 1.5rem;
 }
 
-input {
-  height: 60px;
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 900px;
-  border: none;
+  height: 60px;
   border-radius: 66px;
-  font-size: 1.3rem;
-  padding: 2rem 4rem;
-  background-image: url(../assets/search-icon.png), url(../assets/mic-icon.png);
-  background-repeat: no-repeat, no-repeat;
-  background-position: 1rem, calc(100% - 2rem);
+  background-color: #fff;
 }
 
-.search-icon {
-    position: absolute;
-    left: 10px;
-    top:8px;
-    cursor: pointer;
-  }
+input {
+  height: 100%;
+  flex-grow: 1; /* Utilizamos flex-grow para ocupar la totalidad del contenedor.*/
+  border: none;
+  background: transparent;
+  font-size: 1.3rem;
+}
 
 input:focus {
   outline: none;
 }
 
-.buttons {
-  justify-content: center;
+.search-icon {
+  padding-left: 1rem;
+}
+
+.mic-icon {
+  padding: 0 1rem;
 }
 
 .btn {
@@ -112,18 +145,7 @@ input:focus {
   transition: background-color 0.3s;
 }
 
-li:hover {
-  color: #cccccc;
-  transition: color 0.3s;
-}
-
-.light {
-  background-color: #707793;
-}
-
-.green {
-  color: #3bb99b;
-}
+/* =========== FOOTER BAR ==========*/
 
 footer {
   position: fixed;
